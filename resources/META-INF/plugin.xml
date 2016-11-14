@@ -30,6 +30,7 @@
     <lang.parserDefinition language="Simple" implementationClass="com.simpleplugin.SimpleParserDefinition"/>
     <lang.syntaxHighlighterFactory key="Simple" implementationClass="com.simpleplugin.SimpleSyntaxHighlighterFactory"/>
     <colorSettingsPage implementation="com.simpleplugin.SimpleColorSettingsPage"/>
+      <completion.contributor language="Simple" implementationClass="com.simpleplugin.SimpleCompletionContributor"/>
   </extensions>
 
   <actions>

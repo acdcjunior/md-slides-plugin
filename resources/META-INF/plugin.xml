@@ -31,10 +31,34 @@
     <lang.syntaxHighlighterFactory key="Simple" implementationClass="com.simpleplugin.SimpleSyntaxHighlighterFactory"/>
     <colorSettingsPage implementation="com.simpleplugin.SimpleColorSettingsPage"/>
       <completion.contributor language="Simple" implementationClass="com.simpleplugin.SimpleCompletionContributor"/>
+
+      <fileEditorProvider implementation="com.simpleplugin.gutter.split.MarkdownSplitEditorProvider"/>
   </extensions>
 
   <actions>
     <!-- Add your actions here -->
+      <group id="Markdown.Toolbar.Left" class="com.intellij.openapi.actionSystem.DefaultActionGroup" text="Markdown editor actions">
+          <action class="com.simpleplugin.gutter.ToggleBoldAction"
+                  id="org.intellij.plugins.markdown.ui.actions.styling.ToggleBoldAction"
+                  text="Toggle bold mode"
+                  description="Toggles bold mode on caret/selection"
+                  icon="GutterIcons.EditorActions.Bold">
+          </action>
+
+          <action class="com.simpleplugin.gutter.ToggleItalicAction"
+                  id="org.intellij.plugins.markdown.ui.actions.styling.ToggleItalicAction"
+                  text="Toggle italic mode"
+                  description="Toggles italic mode on caret/selection"
+                  icon="GutterIcons.EditorActions.Italic">
+          </action>
+
+          <action class="com.simpleplugin.gutter.ToggleCodeSpanAction"
+                  id="org.intellij.plugins.markdown.ui.actions.styling.ToggleCodeSpanAction"
+                  text="Toggle monospaced (code span) mode"
+                  description="Toggles monospaced mode (rendered as code span) on caret/selection"
+                  icon="GutterIcons.EditorActions.Code_span">
+          </action>
+      </group>
   </actions>
 
 </idea-plugin>

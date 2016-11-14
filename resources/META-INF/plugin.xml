@@ -27,6 +27,7 @@
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
     <fileTypeFactory implementation="com.simpleplugin.SimpleFileTypeFactory"/>
+    <lang.parserDefinition language="Simple" implementationClass="com.simpleplugin.SimpleParserDefinition"/>
   </extensions>
 
   <actions>

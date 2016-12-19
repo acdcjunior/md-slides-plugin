@@ -8,19 +8,30 @@ import com.simpleplugin.psi.impl.*;
 
 public interface SimpleTypes {
 
-  IElementType PROPERTY = new SimpleElementType("PROPERTY");
 
-  IElementType COMMENT = new SimpleTokenType("COMMENT");
-  IElementType KEY = new SimpleTokenType("KEY");
-  IElementType SEPARATOR = new SimpleTokenType("SEPARATOR");
-  IElementType VALUE = new SimpleTokenType("VALUE");
+  IElementType NEW_BOOK_NOTES = new SimpleTokenType("NEW_BOOK_NOTES");
+  IElementType NEW_PRESENTER_NOTES = new SimpleTokenType("NEW_PRESENTER_NOTES");
+  IElementType NEW_SLIDE_HORIZONTAL = new SimpleTokenType("NEW_SLIDE_HORIZONTAL");
+  IElementType NEW_SLIDE_VERTICAL = new SimpleTokenType("NEW_SLIDE_VERTICAL");
+  IElementType REGULAR_CHARS = new SimpleTokenType("REGULAR_CHARS");
+  IElementType SLIDES_BOLD = new SimpleTokenType("SLIDES_BOLD");
+  IElementType SLIDES_BOLD_ITALICS = new SimpleTokenType("SLIDES_BOLD_ITALICS");
+  IElementType SLIDES_CODE_SPAN = new SimpleTokenType("SLIDES_CODE_SPAN");
+  IElementType SLIDES_HEADER = new SimpleTokenType("SLIDES_HEADER");
+  IElementType SLIDES_IMAGEM_OU_LINK = new SimpleTokenType("SLIDES_IMAGEM_OU_LINK");
+  IElementType SLIDES_ITALICS = new SimpleTokenType("SLIDES_ITALICS");
+  IElementType SLIDES_NOTES = new SimpleTokenType("SLIDES_NOTES");
+  IElementType SLIDES_NOTES_BOLD = new SimpleTokenType("SLIDES_NOTES_BOLD");
+  IElementType SLIDES_NOTES_BOLD_ITALICS = new SimpleTokenType("SLIDES_NOTES_BOLD_ITALICS");
+  IElementType SLIDES_NOTES_HEADER = new SimpleTokenType("SLIDES_NOTES_HEADER");
+  IElementType SLIDES_NOTES_ITALICS = new SimpleTokenType("SLIDES_NOTES_ITALICS");
+  IElementType SLIDES_REVEAL_HTML_CONFIG = new SimpleTokenType("SLIDES_REVEAL_HTML_CONFIG");
+  IElementType SLIDES_TUDOMAIS = new SimpleTokenType("SLIDES_TUDOMAIS");
+  IElementType WHITESPACE_BOOK_NOTES = new SimpleTokenType("WHITESPACE_BOOK_NOTES");
 
   class Factory {
     public static PsiElement createElement(ASTNode node) {
       IElementType type = node.getElementType();
-       if (type == PROPERTY) {
-        return new SimplePropertyImpl(node);
-      }
       throw new AssertionError("Unknown element type: " + type);
     }
   }

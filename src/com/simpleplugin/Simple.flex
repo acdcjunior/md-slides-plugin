@@ -15,30 +15,63 @@ import com.intellij.psi.TokenType;
 %eof{  return;
 %eof}
 
-CRLF=\R
-WHITE_SPACE=[\ \n\t\f]
-FIRST_VALUE_CHARACTER=[^ \n\f\\] | "\\"{CRLF} | "\\".
-VALUE_CHARACTER=[^\n\f\\] | "\\"{CRLF} | "\\".
-END_OF_LINE_COMMENT=("#"|"!")[^\r\n]*
-SEPARATOR=[:=]
-KEY_CHARACTER=[^:=\ \n\t\f\\] | "\\ "
+%{
+    public boolean isInsideNotes() {
+        return yystate() == INSIDE_NOTES || yystate() == INSIDE_NOTES_HEADER;
+    }
+%}
 
-%state WAITING_VALUE
+CRLF=\r?\n
+WHITE_SPACE=[\ \n\t\f]
+
+WHITE_SPACE_CRLF=({CRLF}|{WHITE_SPACE})+
+
+REGULAR_CHARS=[^`*\r\n\f]+
+
+NEW_SLIDE_HORIZONTAL=":::::"\r?\n
+NEW_SLIDE_VERTICAL=":: ::"\r?\n
+NEW_PRESENTER_NOTES=":::"\r?\n
+NEW_BOOK_NOTES=":::~~~~"\r?\n
+
+
+%state INSIDE_NOTES INSIDE_HEADER INSIDE_NOTES_HEADER INSIDE_BOOK
 
 %%
 
-<YYINITIAL> {END_OF_LINE_COMMENT}                           { yybegin(YYINITIAL); return SimpleTypes.COMMENT; }
+<YYINITIAL, INSIDE_NOTES, INSIDE_BOOK> {
+    {NEW_SLIDE_HORIZONTAL}                      { yybegin(YYINITIAL); return SimpleTypes.NEW_SLIDE_HORIZONTAL; }
+    {NEW_SLIDE_VERTICAL}                        { yybegin(YYINITIAL); return SimpleTypes.NEW_SLIDE_VERTICAL; }
+    {NEW_BOOK_NOTES}                            { yybegin(INSIDE_BOOK); return SimpleTypes.NEW_BOOK_NOTES; }
+    {NEW_PRESENTER_NOTES}                       { yybegin(INSIDE_NOTES); return SimpleTypes.NEW_PRESENTER_NOTES; }
+}
 
-<YYINITIAL> {KEY_CHARACTER}+                                { yybegin(YYINITIAL); return SimpleTypes.KEY; }
+\!?\[.*?\]\([^\)]+\)                            { return SimpleTypes.SLIDES_IMAGEM_OU_LINK; }
+\<\!\-\-\ \.[^\>]+\>                            { return SimpleTypes.SLIDES_REVEAL_HTML_CONFIG; }
+`[^`]+`                                         { return SimpleTypes.SLIDES_CODE_SPAN; }
+\*\*\*{REGULAR_CHARS}\*\*\*                     { return (isInsideNotes() ? SimpleTypes.SLIDES_NOTES_BOLD_ITALICS : SimpleTypes.SLIDES_BOLD_ITALICS); }
+\*\*{REGULAR_CHARS}\*\*                         { return (isInsideNotes() ? SimpleTypes.SLIDES_NOTES_BOLD         : SimpleTypes.SLIDES_BOLD); }
+\*{REGULAR_CHARS}\*                             { return (isInsideNotes() ? SimpleTypes.SLIDES_NOTES_ITALICS      : SimpleTypes.SLIDES_ITALICS); }
 
-<YYINITIAL> {SEPARATOR}                                     { yybegin(WAITING_VALUE); return SimpleTypes.SEPARATOR; }
+<INSIDE_NOTES> #+                               { yybegin(INSIDE_NOTES_HEADER); return SimpleTypes.SLIDES_NOTES_HEADER; }
+<INSIDE_NOTES_HEADER> {
+    .                                           { return SimpleTypes.SLIDES_NOTES_HEADER; }
+    {CRLF}                                      { yybegin(INSIDE_NOTES); }
+}
 
-<WAITING_VALUE> {CRLF}({CRLF}|{WHITE_SPACE})+               { yybegin(YYINITIAL); return TokenType.WHITE_SPACE; }
+#+                                              { yybegin(INSIDE_HEADER); return SimpleTypes.SLIDES_HEADER; }
+<INSIDE_HEADER> {
+    .                                           { return SimpleTypes.SLIDES_HEADER; }
+    {CRLF}                                      { yybegin(YYINITIAL); }
+}
+<INSIDE_NOTES> {
+     {WHITE_SPACE_CRLF}                         { return SimpleTypes.SLIDES_NOTES; }
+     .                                          { return SimpleTypes.SLIDES_NOTES; }
+}
+<INSIDE_BOOK> {
+     {WHITE_SPACE_CRLF}                         { return SimpleTypes.WHITESPACE_BOOK_NOTES; }
+     .                                          { return SimpleTypes.WHITESPACE_BOOK_NOTES; }
+}
 
-<WAITING_VALUE> {WHITE_SPACE}+                              { yybegin(WAITING_VALUE); return TokenType.WHITE_SPACE; }
-
-<WAITING_VALUE> {FIRST_VALUE_CHARACTER}{VALUE_CHARACTER}*   { yybegin(YYINITIAL); return SimpleTypes.VALUE; }
-
-({CRLF}|{WHITE_SPACE})+                                     { yybegin(YYINITIAL); return TokenType.WHITE_SPACE; }
-
-.                                                           { return TokenType.BAD_CHARACTER; }
+{WHITE_SPACE}                                   { return TokenType.WHITE_SPACE; }
+{CRLF}                                          { return TokenType.WHITE_SPACE; }
+<YYINITIAL> .                                   { return SimpleTypes.SLIDES_TUDOMAIS; }

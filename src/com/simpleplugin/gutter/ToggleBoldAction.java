@@ -26,6 +26,6 @@ public class ToggleBoldAction extends BaseToggleStateAction {
   @NotNull
   @Override
   protected IElementType getTargetNodeType() {
-    return SimpleTypes.BOLD;
+    return SimpleTypes.SLIDES_BOLD;
   }
 }

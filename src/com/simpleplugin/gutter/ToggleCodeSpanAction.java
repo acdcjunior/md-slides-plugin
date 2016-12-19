@@ -44,6 +44,6 @@ public class ToggleCodeSpanAction extends BaseToggleStateAction {
   @NotNull
   @Override
   protected IElementType getTargetNodeType() {
-    return SimpleTypes.VALUE;
+    return SimpleTypes.REGULAR_CHARS;
   }
 }

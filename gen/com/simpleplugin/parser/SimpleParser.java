@@ -23,12 +23,7 @@ public class SimpleParser implements PsiParser, LightPsiParser {
     boolean r;
     b = adapt_builder_(t, b, this, null);
     Marker m = enter_section_(b, 0, _COLLAPSE_, null);
-    if (t == PROPERTY) {
-      r = property(b, 0);
-    }
-    else {
-      r = parse_root_(t, b, 0);
-    }
+    r = parse_root_(t, b, 0);
     exit_section_(b, 0, m, t, r, true, TRUE_CONDITION);
   }
 
@@ -37,60 +32,27 @@ public class SimpleParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // (KEY SEPARATOR VALUE?)|KEY
-  public static boolean property(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "property")) return false;
-    boolean r;
-    Marker m = enter_section_(b, l, _NONE_, PROPERTY, "<property>");
-    r = property_0(b, l + 1);
-    if (!r) r = consumeToken(b, KEY);
-    exit_section_(b, l, m, r, false, recover_property_parser_);
-    return r;
-  }
-
-  // KEY SEPARATOR VALUE?
-  private static boolean property_0(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "property_0")) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = consumeTokens(b, 0, KEY, SEPARATOR);
-    r = r && property_0_2(b, l + 1);
-    exit_section_(b, m, null, r);
-    return r;
-  }
-
-  // VALUE?
-  private static boolean property_0_2(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "property_0_2")) return false;
-    consumeToken(b, VALUE);
-    return true;
-  }
-
-  /* ********************************************************** */
-  // !(KEY|SEPARATOR|COMMENT)
-  static boolean recover_property(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "recover_property")) return false;
-    boolean r;
-    Marker m = enter_section_(b, l, _NOT_);
-    r = !recover_property_0(b, l + 1);
-    exit_section_(b, l, m, r, false, null);
-    return r;
-  }
-
-  // KEY|SEPARATOR|COMMENT
-  private static boolean recover_property_0(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "recover_property_0")) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = consumeToken(b, KEY);
-    if (!r) r = consumeToken(b, SEPARATOR);
-    if (!r) r = consumeToken(b, COMMENT);
-    exit_section_(b, m, null, r);
-    return r;
-  }
-
-  /* ********************************************************** */
-  // (property|COMMENT)*
+  // (
+  //     NEW_SLIDE_HORIZONTAL
+  //     |NEW_SLIDE_VERTICAL
+  //     |NEW_PRESENTER_NOTES
+  //     |NEW_BOOK_NOTES
+  //     |WHITESPACE_BOOK_NOTES
+  //     |REGULAR_CHARS
+  //     |SLIDES_NOTES
+  //     |SLIDES_NOTES_BOLD_ITALICS
+  //     |SLIDES_NOTES_BOLD
+  //     |SLIDES_NOTES_ITALICS
+  //     |SLIDES_BOLD_ITALICS
+  //     |SLIDES_BOLD
+  //     |SLIDES_ITALICS
+  //     |SLIDES_HEADER
+  //     |SLIDES_NOTES_HEADER
+  //     |SLIDES_IMAGEM_OU_LINK
+  //     |SLIDES_CODE_SPAN
+  //     |SLIDES_REVEAL_HTML_CONFIG
+  //     |SLIDES_TUDOMAIS
+  // )*
   static boolean simpleFile(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "simpleFile")) return false;
     int c = current_position_(b);
@@ -102,20 +64,50 @@ public class SimpleParser implements PsiParser, LightPsiParser {
     return true;
   }
 
-  // property|COMMENT
+  // NEW_SLIDE_HORIZONTAL
+  //     |NEW_SLIDE_VERTICAL
+  //     |NEW_PRESENTER_NOTES
+  //     |NEW_BOOK_NOTES
+  //     |WHITESPACE_BOOK_NOTES
+  //     |REGULAR_CHARS
+  //     |SLIDES_NOTES
+  //     |SLIDES_NOTES_BOLD_ITALICS
+  //     |SLIDES_NOTES_BOLD
+  //     |SLIDES_NOTES_ITALICS
+  //     |SLIDES_BOLD_ITALICS
+  //     |SLIDES_BOLD
+  //     |SLIDES_ITALICS
+  //     |SLIDES_HEADER
+  //     |SLIDES_NOTES_HEADER
+  //     |SLIDES_IMAGEM_OU_LINK
+  //     |SLIDES_CODE_SPAN
+  //     |SLIDES_REVEAL_HTML_CONFIG
+  //     |SLIDES_TUDOMAIS
   private static boolean simpleFile_0(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "simpleFile_0")) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = property(b, l + 1);
-    if (!r) r = consumeToken(b, COMMENT);
+    r = consumeToken(b, NEW_SLIDE_HORIZONTAL);
+    if (!r) r = consumeToken(b, NEW_SLIDE_VERTICAL);
+    if (!r) r = consumeToken(b, NEW_PRESENTER_NOTES);
+    if (!r) r = consumeToken(b, NEW_BOOK_NOTES);
+    if (!r) r = consumeToken(b, WHITESPACE_BOOK_NOTES);
+    if (!r) r = consumeToken(b, REGULAR_CHARS);
+    if (!r) r = consumeToken(b, SLIDES_NOTES);
+    if (!r) r = consumeToken(b, SLIDES_NOTES_BOLD_ITALICS);
+    if (!r) r = consumeToken(b, SLIDES_NOTES_BOLD);
+    if (!r) r = consumeToken(b, SLIDES_NOTES_ITALICS);
+    if (!r) r = consumeToken(b, SLIDES_BOLD_ITALICS);
+    if (!r) r = consumeToken(b, SLIDES_BOLD);
+    if (!r) r = consumeToken(b, SLIDES_ITALICS);
+    if (!r) r = consumeToken(b, SLIDES_HEADER);
+    if (!r) r = consumeToken(b, SLIDES_NOTES_HEADER);
+    if (!r) r = consumeToken(b, SLIDES_IMAGEM_OU_LINK);
+    if (!r) r = consumeToken(b, SLIDES_CODE_SPAN);
+    if (!r) r = consumeToken(b, SLIDES_REVEAL_HTML_CONFIG);
+    if (!r) r = consumeToken(b, SLIDES_TUDOMAIS);
     exit_section_(b, m, null, r);
     return r;
   }
 
-  final static Parser recover_property_parser_ = new Parser() {
-    public boolean parse(PsiBuilder b, int l) {
-      return recover_property(b, l + 1);
-    }
-  };
 }

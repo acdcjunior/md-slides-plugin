@@ -33,6 +33,8 @@
       <completion.contributor language="Simple" implementationClass="com.simpleplugin.SimpleCompletionContributor"/>
 
       <fileEditorProvider implementation="com.simpleplugin.gutter.split.MarkdownSplitEditorProvider"/>
+
+      <additionalTextAttributes scheme="Default" file="colorSchemes/MyLangDefault.xml"/>
   </extensions>
 
   <actions>

@@ -15,9 +15,32 @@
   psiImplUtilClass="com.simpleplugin.psi.impl.SimplePsiImplUtil"
 }
 
-simpleFile ::= (property|COMMENT)*
+simpleFile ::= (
+    NEW_SLIDE_HORIZONTAL
+    |NEW_SLIDE_VERTICAL
 
-property ::= (KEY SEPARATOR VALUE?)|KEY {
+    |NEW_PRESENTER_NOTES
+    |NEW_BOOK_NOTES
+
+    |WHITESPACE_BOOK_NOTES
+
+    |REGULAR_CHARS
+    |SLIDES_NOTES
+    |SLIDES_NOTES_BOLD_ITALICS
+    |SLIDES_NOTES_BOLD
+    |SLIDES_NOTES_ITALICS
+    |SLIDES_BOLD_ITALICS
+    |SLIDES_BOLD
+    |SLIDES_ITALICS
+    |SLIDES_HEADER
+    |SLIDES_NOTES_HEADER
+    |SLIDES_IMAGEM_OU_LINK
+    |SLIDES_CODE_SPAN
+    |SLIDES_REVEAL_HTML_CONFIG
+    |SLIDES_TUDOMAIS
+)*
+/*
+property ::= ((KEY|BOLD)+ SEPARATOR VALUE?)|KEY {
     pin=3
     recoverWhile="recover_property"
     mixin="com.simpleplugin.psi.impl.SimpleNamedElementImpl"
@@ -25,4 +48,5 @@ property ::= (KEY SEPARATOR VALUE?)|KEY {
     methods=[getKey getValue getName setName getNameIdentifier getPresentation]
 }
 
-private recover_property ::= !(KEY|SEPARATOR|COMMENT)
+private recover_property ::= !(KEY|SEPARATOR|BOLD|NEW_SLIDE_HORIZONTAL|NEW_SLIDE_VERTICAL|NEW_SLIDE_NOTES_DIVIDER)
+*/

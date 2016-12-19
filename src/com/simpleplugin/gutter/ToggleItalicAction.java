@@ -16,7 +16,7 @@ public class ToggleItalicAction extends BaseToggleStateAction {
 
   @NotNull
   protected IElementType getTargetNodeType() {
-    return SimpleTypes.VALUE;
+    return SimpleTypes.REGULAR_CHARS;
   }
 
   private static boolean isWord(@NotNull CharSequence text, int from, int to) {

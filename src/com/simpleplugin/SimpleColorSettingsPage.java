@@ -9,10 +9,13 @@ import javax.swing.*;
 import java.util.Map;
 
 public class SimpleColorSettingsPage implements ColorSettingsPage {
+  // Pagina de configuracao (Settings) pra o cara customizar as cores
   private static final AttributesDescriptor[] DESCRIPTORS = new AttributesDescriptor[]{
       new AttributesDescriptor("Key", SimpleSyntaxHighlighter.KEY),
       new AttributesDescriptor("Separator", SimpleSyntaxHighlighter.SEPARATOR),
-      new AttributesDescriptor("Value", SimpleSyntaxHighlighter.VALUE),
+      new AttributesDescriptor("Value", SimpleSyntaxHighlighter.REGULAR_CHAR),
+      new AttributesDescriptor("BOLD", SimpleSyntaxHighlighter.HIGHLIGHT_SLIDES_BOLD),
+      new AttributesDescriptor("ITALICS", SimpleSyntaxHighlighter.HIGHLIGHT_SLIDES_ITALICS),
   };
 
   @Nullable

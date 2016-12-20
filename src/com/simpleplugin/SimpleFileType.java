@@ -6,7 +6,7 @@ import org.jetbrains.annotations.*;
 import javax.swing.*;
 
 public class SimpleFileType extends LanguageFileType {
-  public static final SimpleFileType INSTANCE = new SimpleFileType();
+  static final SimpleFileType INSTANCE = new SimpleFileType();
 
   private SimpleFileType() {
     super(SimpleLanguage.INSTANCE);
@@ -15,19 +15,19 @@ public class SimpleFileType extends LanguageFileType {
   @NotNull
   @Override
   public String getName() {
-    return "Simple file";
+    return "MD Slides";
   }
 
   @NotNull
   @Override
   public String getDescription() {
-    return "Simple language file";
+    return "Arquivo MD Slides";
   }
 
   @NotNull
   @Override
   public String getDefaultExtension() {
-    return "simple";
+    return "md";
   }
 
   @Nullable

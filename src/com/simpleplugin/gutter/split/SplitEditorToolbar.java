@@ -52,7 +52,7 @@ public class SplitEditorToolbar extends JPanel implements Disposable {
 
     mySpacingPanel = new MySpacingPanel((int)leftToolbar.getComponent().getPreferredSize().getHeight());
     final JPanel centerPanel = new JPanel(new BorderLayout());
-    centerPanel.add(new JLabel("markdown.toolbar.view.label", SwingConstants.RIGHT), BorderLayout.EAST);
+    centerPanel.add(new JLabel("MD Slides! ", SwingConstants.RIGHT), BorderLayout.EAST);
 
     add(mySpacingPanel);
     add(leftToolbar.getComponent());

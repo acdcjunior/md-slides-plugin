@@ -5,13 +5,11 @@
   <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
 
   <description><![CDATA[
-      Enter short description for your plugin here.<br>
-      <em>most HTML tags may be used</em>
+      MD Slides editor.
     ]]></description>
 
   <change-notes><![CDATA[
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>
+      1st version.
     ]]>
   </change-notes>
 
@@ -27,14 +25,14 @@
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
     <fileTypeFactory implementation="com.simpleplugin.SimpleFileTypeFactory"/>
-    <lang.parserDefinition language="Simple" implementationClass="com.simpleplugin.SimpleParserDefinition"/>
-    <lang.syntaxHighlighterFactory key="Simple" implementationClass="com.simpleplugin.SimpleSyntaxHighlighterFactory"/>
+    <lang.parserDefinition language="MDSlides" implementationClass="com.simpleplugin.SimpleParserDefinition"/>
+    <lang.syntaxHighlighterFactory key="MDSlides" implementationClass="com.simpleplugin.SimpleSyntaxHighlighterFactory"/>
     <colorSettingsPage implementation="com.simpleplugin.SimpleColorSettingsPage"/>
-      <completion.contributor language="Simple" implementationClass="com.simpleplugin.SimpleCompletionContributor"/>
+      <completion.contributor language="MDSlides" implementationClass="com.simpleplugin.SimpleCompletionContributor"/>
 
       <fileEditorProvider implementation="com.simpleplugin.gutter.split.MarkdownSplitEditorProvider"/>
 
-      <additionalTextAttributes scheme="Default" file="colorSchemes/MyLangDefault.xml"/>
+      <additionalTextAttributes scheme="Default" file="colorSchemes/MDSlides-Default-ColorScheme.xml"/>
   </extensions>
 
   <actions>

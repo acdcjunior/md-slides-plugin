@@ -68,6 +68,6 @@ public class SimpleColorSettingsPage implements ColorSettingsPage {
   @NotNull
   @Override
   public String getDisplayName() {
-    return "Simple";
+    return "MD Slides";
   }
 }

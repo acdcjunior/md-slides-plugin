@@ -46,7 +46,7 @@ NEW_BOOK_NOTES=":::~~~~"\r?\n
 }
 
 \^\^\/.+\/                                      { return SimpleTypes.SLIDES_COMANDO_ESPECIAL; }
-\^\^\[\d+(,\d+)*\]                              { return SimpleTypes.SLIDES_COMANDO_ESPECIAL; }
+\^\^\[\d+(,\ ?\d+)*\]                           { return SimpleTypes.SLIDES_COMANDO_ESPECIAL; }
 ```[^`]+```                                     { return SimpleTypes.SLIDES_CODE_BLOCK; }
 \!?\[.*?\]\([^\)]+\)                            { return SimpleTypes.SLIDES_IMAGEM_OU_LINK; }
 \<[^>]+>                                        { return SimpleTypes.SLIDES_REVEAL_HTML_CONFIG; }

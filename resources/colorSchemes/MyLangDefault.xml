@@ -112,7 +112,8 @@
     <option name="SLIDES_CODE_BLOCK">
         <value>
             <option name="FOREGROUND" value="CC0000"/>
-            <option name="BACKGROUND" value="E1E1E1"/>
+            <option name="BACKGROUND" value="fff8f8"/>
+            <option name="FONT_TYPE" value="1"/>
         </value>
     </option>
 

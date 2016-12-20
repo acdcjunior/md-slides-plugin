@@ -50,7 +50,7 @@ public class SimpleParser implements PsiParser, LightPsiParser {
   //     |SLIDES_HEADER
   //     |SLIDES_NOTES_HEADER
   //     |SLIDES_IMAGEM_OU_LINK
-  //     |SLIDES_CODE_SPAN
+  //     |SLIDES_CODE_BLOCK
   //     |SLIDES_REVEAL_HTML_CONFIG
   //     |SLIDES_TUDOMAIS
   // )*
@@ -82,7 +82,7 @@ public class SimpleParser implements PsiParser, LightPsiParser {
   //     |SLIDES_HEADER
   //     |SLIDES_NOTES_HEADER
   //     |SLIDES_IMAGEM_OU_LINK
-  //     |SLIDES_CODE_SPAN
+  //     |SLIDES_CODE_BLOCK
   //     |SLIDES_REVEAL_HTML_CONFIG
   //     |SLIDES_TUDOMAIS
   private static boolean simpleFile_0(PsiBuilder b, int l) {
@@ -106,7 +106,7 @@ public class SimpleParser implements PsiParser, LightPsiParser {
     if (!r) r = consumeToken(b, SLIDES_HEADER);
     if (!r) r = consumeToken(b, SLIDES_NOTES_HEADER);
     if (!r) r = consumeToken(b, SLIDES_IMAGEM_OU_LINK);
-    if (!r) r = consumeToken(b, SLIDES_CODE_SPAN);
+    if (!r) r = consumeToken(b, SLIDES_CODE_BLOCK);
     if (!r) r = consumeToken(b, SLIDES_REVEAL_HTML_CONFIG);
     if (!r) r = consumeToken(b, SLIDES_TUDOMAIS);
     exit_section_(b, m, null, r);

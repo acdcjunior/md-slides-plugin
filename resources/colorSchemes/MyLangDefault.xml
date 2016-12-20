@@ -109,7 +109,7 @@
         </value>
     </option>
 
-    <option name="SLIDES_CODE_SPAN">
+    <option name="SLIDES_CODE_BLOCK">
         <value>
             <option name="BACKGROUND" value="DEDEDE"/>
         </value>

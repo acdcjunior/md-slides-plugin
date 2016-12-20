@@ -16,7 +16,7 @@ public interface SimpleTypes {
   IElementType REGULAR_CHARS = new SimpleTokenType("REGULAR_CHARS");
   IElementType SLIDES_BOLD = new SimpleTokenType("SLIDES_BOLD");
   IElementType SLIDES_BOLD_ITALICS = new SimpleTokenType("SLIDES_BOLD_ITALICS");
-  IElementType SLIDES_CODE_SPAN = new SimpleTokenType("SLIDES_CODE_SPAN");
+  IElementType SLIDES_CODE_BLOCK = new SimpleTokenType("SLIDES_CODE_BLOCK");
   IElementType SLIDES_COMANDO_ESPECIAL = new SimpleTokenType("SLIDES_COMANDO_ESPECIAL");
   IElementType SLIDES_HEADER = new SimpleTokenType("SLIDES_HEADER");
   IElementType SLIDES_IMAGEM_OU_LINK = new SimpleTokenType("SLIDES_IMAGEM_OU_LINK");

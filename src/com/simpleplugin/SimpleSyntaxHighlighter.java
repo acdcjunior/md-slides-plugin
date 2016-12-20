@@ -37,7 +37,6 @@ public class SimpleSyntaxHighlighter extends SyntaxHighlighterBase {
     private static final TextAttributesKey HIGHLIGHT_SLIDES_NOTES_HEADER = createTextAttributesKey("SLIDES_NOTES_HEADER", DefaultLanguageHighlighterColors.BLOCK_COMMENT);
 
     private static final TextAttributesKey HIGHLIGHT_SLIDES_IMAGEM_OU_LINK = createTextAttributesKey("SLIDES_IMAGEM_OU_LINK", DefaultLanguageHighlighterColors.KEYWORD);
-    private static final TextAttributesKey HIGHLIGHT_SLIDES_CODE_SPAN = createTextAttributesKey("SLIDES_CODE_SPAN", DefaultLanguageHighlighterColors.KEYWORD);
     private static final TextAttributesKey HIGHLIGHT_SLIDE_NOTES = createTextAttributesKey("SLIDES_NOTES", DefaultLanguageHighlighterColors.BLOCK_COMMENT);
     private static final TextAttributesKey HIGHLIGHT_SLIDES_REVEAL_HTML_CONFIG = createTextAttributesKey("SLIDES_REVEAL_HTML_CONFIG", DefaultLanguageHighlighterColors.BLOCK_COMMENT);
 
@@ -66,7 +65,7 @@ public class SimpleSyntaxHighlighter extends SyntaxHighlighterBase {
         put(SimpleTypes.SLIDES_NOTES_HEADER, criarParaHighlight(HIGHLIGHT_SLIDES_NOTES_HEADER));
 
         put(SimpleTypes.SLIDES_IMAGEM_OU_LINK, criarParaHighlight(HIGHLIGHT_SLIDES_IMAGEM_OU_LINK));
-        put(SimpleTypes.SLIDES_CODE_SPAN, criarParaHighlight(HIGHLIGHT_SLIDES_CODE_SPAN));
+        put(SimpleTypes.SLIDES_CODE_BLOCK, criarParaHighlight(createTextAttributesKey("SLIDES_CODE_BLOCK", DefaultLanguageHighlighterColors.KEYWORD)));
 
         put(SimpleTypes.SLIDES_REVEAL_HTML_CONFIG, criarParaHighlight(HIGHLIGHT_SLIDES_REVEAL_HTML_CONFIG));
 

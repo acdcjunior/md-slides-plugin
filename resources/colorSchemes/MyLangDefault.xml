@@ -33,6 +33,13 @@
         </value>
     </option>
 
+    <option name="SLIDES_COMANDO_ESPECIAL">
+        <value>
+            <option name="FOREGROUND" value="ffff00"/>
+            <option name="BACKGROUND" value="ff0000"/>
+        </value>
+    </option>
+
     <option name="SLIDES_BOLD_ITALICS">
         <value>
             <option name="FONT_TYPE" value="3"/>

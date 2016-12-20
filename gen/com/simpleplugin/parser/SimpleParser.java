@@ -39,6 +39,7 @@ public class SimpleParser implements PsiParser, LightPsiParser {
   //     |NEW_BOOK_NOTES
   //     |WHITESPACE_BOOK_NOTES
   //     |REGULAR_CHARS
+  //     |SLIDES_COMANDO_ESPECIAL
   //     |SLIDES_NOTES
   //     |SLIDES_NOTES_BOLD_ITALICS
   //     |SLIDES_NOTES_BOLD
@@ -70,6 +71,7 @@ public class SimpleParser implements PsiParser, LightPsiParser {
   //     |NEW_BOOK_NOTES
   //     |WHITESPACE_BOOK_NOTES
   //     |REGULAR_CHARS
+  //     |SLIDES_COMANDO_ESPECIAL
   //     |SLIDES_NOTES
   //     |SLIDES_NOTES_BOLD_ITALICS
   //     |SLIDES_NOTES_BOLD
@@ -93,6 +95,7 @@ public class SimpleParser implements PsiParser, LightPsiParser {
     if (!r) r = consumeToken(b, NEW_BOOK_NOTES);
     if (!r) r = consumeToken(b, WHITESPACE_BOOK_NOTES);
     if (!r) r = consumeToken(b, REGULAR_CHARS);
+    if (!r) r = consumeToken(b, SLIDES_COMANDO_ESPECIAL);
     if (!r) r = consumeToken(b, SLIDES_NOTES);
     if (!r) r = consumeToken(b, SLIDES_NOTES_BOLD_ITALICS);
     if (!r) r = consumeToken(b, SLIDES_NOTES_BOLD);

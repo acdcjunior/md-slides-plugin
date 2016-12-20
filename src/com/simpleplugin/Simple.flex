@@ -45,8 +45,9 @@ NEW_BOOK_NOTES=":::~~~~"\r?\n
     {NEW_PRESENTER_NOTES}                       { yybegin(INSIDE_NOTES); return SimpleTypes.NEW_PRESENTER_NOTES; }
 }
 
+\^\^\/.+\/                                      { return SimpleTypes.SLIDES_COMANDO_ESPECIAL; }
 \!?\[.*?\]\([^\)]+\)                            { return SimpleTypes.SLIDES_IMAGEM_OU_LINK; }
-\<[^>]+>                            { return SimpleTypes.SLIDES_REVEAL_HTML_CONFIG; }
+\<[^>]+>                                        { return SimpleTypes.SLIDES_REVEAL_HTML_CONFIG; }
 `[^`]+`                                         { return SimpleTypes.SLIDES_CODE_SPAN; }
 \*\*\*{REGULAR_CHARS}\*\*\*                     { return (isInsideNotes() ? SimpleTypes.SLIDES_NOTES_BOLD_ITALICS : SimpleTypes.SLIDES_BOLD_ITALICS); }
 \*\*{REGULAR_CHARS}\*\*                         { return (isInsideNotes() ? SimpleTypes.SLIDES_NOTES_BOLD         : SimpleTypes.SLIDES_BOLD); }

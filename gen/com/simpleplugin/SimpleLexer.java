@@ -57,9 +57,9 @@ class SimpleLexer implements FlexLexer {
 
   /* The ZZ_CMAP_A table has 320 entries */
   static final char ZZ_CMAP_A[] = zzUnpackCMap(
-    "\11\0\1\3\1\2\1\13\1\5\1\1\22\0\1\7\1\11\1\0\1\22\4\0\1\15\1\16\1\4\17\0\1"+
-    "\6\1\0\1\17\1\0\1\20\34\0\1\12\1\0\1\14\2\0\1\21\35\0\1\10\6\0\1\13\242\0"+
-    "\2\13\26\0");
+    "\11\0\1\3\1\2\1\13\1\5\1\1\22\0\1\7\1\14\1\0\1\24\4\0\1\17\1\20\1\4\4\0\1"+
+    "\12\12\0\1\6\1\0\1\21\1\0\1\22\34\0\1\15\1\0\1\16\1\11\1\0\1\23\35\0\1\10"+
+    "\6\0\1\13\242\0\2\13\26\0");
 
   /** 
    * Translates DFA states to action switch labels.
@@ -67,14 +67,14 @@ class SimpleLexer implements FlexLexer {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\5\0\1\1\1\0\1\2\6\1\1\3\1\4\1\0"+
-    "\7\4\1\5\1\6\1\0\1\7\5\6\1\10\1\0"+
-    "\1\11\6\10\1\12\1\0\7\12\7\0\1\13\5\0"+
-    "\1\14\1\15\3\0\1\16\5\0\1\17\4\0\2\20"+
-    "\2\0\1\21\2\0\1\22\1\23\2\0\1\24";
+    "\5\0\1\1\1\0\1\2\7\1\1\3\1\4\1\0"+
+    "\10\4\1\5\1\6\1\0\1\7\6\6\1\10\1\0"+
+    "\1\11\7\10\1\12\1\0\10\12\10\0\1\13\6\0"+
+    "\1\14\1\15\3\0\1\16\6\0\1\17\4\0\1\20"+
+    "\2\21\2\0\1\22\2\0\1\23\1\24\2\0\1\25";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[92];
+    int [] result = new int[101];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -99,21 +99,22 @@ class SimpleLexer implements FlexLexer {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\23\0\46\0\71\0\114\0\137\0\162\0\137"+
-    "\0\205\0\230\0\253\0\276\0\321\0\344\0\367\0\137"+
-    "\0\u010a\0\u011d\0\205\0\230\0\253\0\276\0\321\0\344"+
-    "\0\u0130\0\137\0\u0143\0\137\0\205\0\253\0\276\0\321"+
-    "\0\344\0\137\0\u0156\0\137\0\205\0\253\0\276\0\321"+
-    "\0\344\0\367\0\137\0\u0169\0\u017c\0\205\0\230\0\253"+
-    "\0\276\0\321\0\344\0\u018f\0\u01a2\0\u01b5\0\276\0\u01c8"+
-    "\0\u01db\0\u01ee\0\137\0\u0201\0\u0214\0\u0227\0\u023a\0\u024d"+
-    "\0\137\0\137\0\u0260\0\u0273\0\u0286\0\137\0\u0299\0\u02ac"+
-    "\0\u02bf\0\u02d2\0\u02e5\0\137\0\u02f8\0\u030b\0\u031e\0\u0331"+
-    "\0\276\0\137\0\u0344\0\u0357\0\137\0\u036a\0\u037d\0\137"+
-    "\0\137\0\u0390\0\u03a3\0\137";
+    "\0\0\0\25\0\52\0\77\0\124\0\151\0\176\0\151"+
+    "\0\223\0\250\0\275\0\322\0\347\0\374\0\u0111\0\u0126"+
+    "\0\151\0\u013b\0\u0150\0\223\0\250\0\275\0\322\0\347"+
+    "\0\374\0\u0111\0\u0165\0\151\0\u017a\0\151\0\223\0\275"+
+    "\0\322\0\347\0\374\0\u0111\0\151\0\u018f\0\151\0\223"+
+    "\0\275\0\322\0\347\0\374\0\u0111\0\u0126\0\151\0\u01a4"+
+    "\0\u01b9\0\223\0\250\0\275\0\322\0\347\0\374\0\u0111"+
+    "\0\u01ce\0\u01e3\0\u01f8\0\u020d\0\347\0\u0222\0\u0237\0\u024c"+
+    "\0\151\0\u0261\0\u0276\0\u028b\0\u02a0\0\u02b5\0\u02ca\0\151"+
+    "\0\151\0\u02df\0\u02f4\0\u0309\0\151\0\u031e\0\u0333\0\u0348"+
+    "\0\u035d\0\u0372\0\u0387\0\151\0\u039c\0\u03b1\0\u03c6\0\u03db"+
+    "\0\u035d\0\347\0\151\0\u03f0\0\u0405\0\151\0\u041a\0\u042f"+
+    "\0\151\0\151\0\u0444\0\u0459\0\151";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[92];
+    int [] result = new int[101];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -137,41 +138,45 @@ class SimpleLexer implements FlexLexer {
 
   private static final String ZZ_TRANS_PACKED_0 =
     "\1\6\1\7\2\10\1\11\1\10\1\12\1\10\1\6"+
-    "\1\13\1\14\1\0\3\6\1\15\1\6\1\16\1\17"+
-    "\1\20\1\21\2\22\1\23\1\22\1\24\1\22\1\20"+
-    "\1\25\1\26\1\0\3\20\1\27\1\20\1\30\1\31"+
-    "\1\32\1\33\1\34\1\32\1\35\1\10\3\32\1\36"+
-    "\1\37\1\0\3\32\1\40\1\32\1\41\1\17\1\42"+
-    "\1\43\1\44\1\42\1\45\1\10\3\42\1\46\1\47"+
-    "\1\0\3\42\1\50\1\42\1\51\1\52\1\53\1\54"+
-    "\2\55\1\56\1\55\1\57\1\55\1\53\1\60\1\61"+
-    "\1\0\3\53\1\62\1\53\1\63\1\17\25\0\1\10"+
-    "\20\0\1\64\2\0\1\64\1\65\1\0\13\64\1\0"+
-    "\1\64\6\0\1\66\26\0\1\67\10\0\1\67\2\0"+
-    "\2\67\1\0\5\67\1\0\1\70\6\67\20\71\1\0"+
-    "\2\71\21\72\1\0\1\72\22\0\1\17\2\0\1\22"+
-    "\21\0\1\21\2\22\1\0\1\22\1\0\1\22\35\0"+
-    "\1\31\2\0\1\34\22\0\1\44\22\0\1\55\21\0"+
-    "\1\54\2\55\1\0\1\55\1\0\1\55\13\0\1\64"+
-    "\2\0\1\64\1\73\1\0\13\64\1\0\1\64\1\74"+
-    "\2\0\1\74\1\75\1\0\13\74\1\0\1\74\6\0"+
-    "\1\76\1\77\13\0\1\67\2\0\2\67\1\0\5\67"+
-    "\1\0\1\70\1\100\5\67\20\71\1\101\2\71\21\72"+
-    "\1\102\1\72\1\74\2\0\1\74\1\103\1\0\13\74"+
-    "\1\0\1\74\1\104\2\0\1\104\2\0\13\104\1\0"+
-    "\1\104\1\0\1\105\1\106\3\0\1\107\1\0\1\110"+
-    "\20\0\1\111\14\0\1\112\2\113\2\112\1\113\5\112"+
-    "\1\113\2\112\1\67\4\112\4\0\1\114\16\0\1\104"+
-    "\2\0\1\104\1\115\1\0\13\104\1\0\1\104\2\0"+
-    "\1\106\26\0\1\116\24\0\1\117\20\0\1\120\14\0"+
-    "\1\112\2\113\2\112\1\113\5\112\1\113\2\112\1\121"+
-    "\4\112\16\113\1\122\4\113\4\0\1\123\17\0\1\124"+
-    "\1\125\30\0\1\126\13\0\1\127\1\130\24\0\1\131"+
-    "\20\0\1\125\30\0\1\132\14\0\1\130\21\0\1\133"+
-    "\1\134\22\0\1\134\20\0";
+    "\1\13\1\6\1\0\1\14\1\15\3\6\1\16\1\6"+
+    "\1\17\1\20\1\21\1\22\2\23\1\24\1\23\1\25"+
+    "\1\23\1\21\1\26\1\21\1\0\1\27\1\30\3\21"+
+    "\1\31\1\21\1\32\1\33\1\34\1\35\1\36\1\34"+
+    "\1\37\1\10\3\34\1\40\1\34\1\0\1\41\1\42"+
+    "\3\34\1\43\1\34\1\44\1\20\1\45\1\46\1\47"+
+    "\1\45\1\50\1\10\3\45\1\51\1\45\1\0\1\52"+
+    "\1\53\3\45\1\54\1\45\1\55\1\56\1\57\1\60"+
+    "\2\61\1\62\1\61\1\63\1\61\1\57\1\64\1\57"+
+    "\1\0\1\65\1\66\3\57\1\67\1\57\1\70\1\20"+
+    "\27\0\1\10\22\0\1\71\2\0\1\71\1\72\1\0"+
+    "\15\71\1\0\1\71\6\0\1\73\27\0\1\74\30\0"+
+    "\1\75\7\0\1\75\2\0\2\75\1\0\5\75\1\0"+
+    "\2\75\1\76\6\75\22\77\1\0\2\77\23\100\1\0"+
+    "\1\100\24\0\1\20\2\0\1\23\23\0\1\22\2\23"+
+    "\1\0\1\23\1\0\1\23\41\0\1\33\2\0\1\36"+
+    "\24\0\1\47\24\0\1\61\23\0\1\60\2\61\1\0"+
+    "\1\61\1\0\1\61\15\0\1\71\2\0\1\71\1\101"+
+    "\1\0\15\71\1\0\1\71\1\102\2\0\1\102\1\103"+
+    "\1\0\15\102\1\0\1\102\6\0\1\104\1\105\27\0"+
+    "\1\106\12\0\1\75\2\0\2\75\1\0\5\75\1\0"+
+    "\2\75\1\76\1\107\5\75\22\77\1\110\2\77\23\100"+
+    "\1\111\1\100\1\102\2\0\1\102\1\112\1\0\15\102"+
+    "\1\0\1\102\1\113\2\0\1\113\2\0\15\113\1\0"+
+    "\1\113\1\0\1\114\1\115\3\0\1\116\1\0\1\117"+
+    "\22\0\1\120\16\0\1\121\2\0\2\121\1\0\5\121"+
+    "\1\0\11\121\1\122\2\123\2\122\1\123\5\122\1\123"+
+    "\4\122\1\75\4\122\4\0\1\124\20\0\1\113\2\0"+
+    "\1\113\1\125\1\0\15\113\1\0\1\113\2\0\1\115"+
+    "\30\0\1\126\26\0\1\127\22\0\1\130\16\0\1\121"+
+    "\2\0\2\121\1\0\4\121\1\131\1\0\11\121\1\122"+
+    "\2\123\2\122\1\123\5\122\1\123\4\122\1\132\4\122"+
+    "\20\123\1\133\4\123\4\0\1\134\21\0\1\135\1\136"+
+    "\32\0\1\137\15\0\1\140\1\141\26\0\1\142\22\0"+
+    "\1\136\32\0\1\143\16\0\1\141\23\0\1\144\1\145"+
+    "\24\0\1\145\22\0";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[950];
+    int [] result = new int[1134];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -209,14 +214,14 @@ class SimpleLexer implements FlexLexer {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\5\0\1\11\1\0\1\11\7\1\1\11\1\0\10\1"+
-    "\1\11\1\0\1\11\5\1\1\11\1\0\1\11\6\1"+
-    "\1\11\1\0\7\1\7\0\1\11\5\0\2\11\3\0"+
-    "\1\11\5\0\1\11\4\0\1\1\1\11\2\0\1\11"+
+    "\5\0\1\11\1\0\1\11\10\1\1\11\1\0\11\1"+
+    "\1\11\1\0\1\11\6\1\1\11\1\0\1\11\7\1"+
+    "\1\11\1\0\10\1\10\0\1\11\6\0\2\11\3\0"+
+    "\1\11\6\0\1\11\4\0\2\1\1\11\2\0\1\11"+
     "\2\0\2\11\2\0\1\11";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[92];
+    int [] result = new int[101];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -537,83 +542,87 @@ class SimpleLexer implements FlexLexer {
           case 1: 
             { return SimpleTypes.SLIDES_TUDOMAIS;
             }
-          case 21: break;
+          case 22: break;
           case 2: 
             { return TokenType.WHITE_SPACE;
             }
-          case 22: break;
+          case 23: break;
           case 3: 
             { yybegin(INSIDE_HEADER); return SimpleTypes.SLIDES_HEADER;
             }
-          case 23: break;
+          case 24: break;
           case 4: 
             { return SimpleTypes.SLIDES_NOTES;
             }
-          case 24: break;
+          case 25: break;
           case 5: 
             { yybegin(INSIDE_NOTES_HEADER); return SimpleTypes.SLIDES_NOTES_HEADER;
             }
-          case 25: break;
+          case 26: break;
           case 6: 
             { return SimpleTypes.SLIDES_HEADER;
             }
-          case 26: break;
+          case 27: break;
           case 7: 
             { yybegin(YYINITIAL);
             }
-          case 27: break;
+          case 28: break;
           case 8: 
             { return SimpleTypes.SLIDES_NOTES_HEADER;
             }
-          case 28: break;
+          case 29: break;
           case 9: 
             { yybegin(INSIDE_NOTES);
             }
-          case 29: break;
+          case 30: break;
           case 10: 
             { return SimpleTypes.WHITESPACE_BOOK_NOTES;
             }
-          case 30: break;
+          case 31: break;
           case 11: 
             { return (isInsideNotes() ? SimpleTypes.SLIDES_NOTES_ITALICS      : SimpleTypes.SLIDES_ITALICS);
             }
-          case 31: break;
+          case 32: break;
           case 12: 
             { return SimpleTypes.SLIDES_REVEAL_HTML_CONFIG;
             }
-          case 32: break;
+          case 33: break;
           case 13: 
             { return SimpleTypes.SLIDES_CODE_SPAN;
             }
-          case 33: break;
+          case 34: break;
           case 14: 
             { yybegin(INSIDE_NOTES); return SimpleTypes.NEW_PRESENTER_NOTES;
             }
-          case 34: break;
+          case 35: break;
           case 15: 
             { return (isInsideNotes() ? SimpleTypes.SLIDES_NOTES_BOLD         : SimpleTypes.SLIDES_BOLD);
             }
-          case 35: break;
-          case 16: 
-            { return SimpleTypes.SLIDES_IMAGEM_OU_LINK;
-            }
           case 36: break;
-          case 17: 
-            { yybegin(YYINITIAL); return SimpleTypes.NEW_SLIDE_HORIZONTAL;
+          case 16: 
+            { return SimpleTypes.SLIDES_COMANDO_ESPECIAL;
             }
           case 37: break;
-          case 18: 
-            { yybegin(YYINITIAL); return SimpleTypes.NEW_SLIDE_VERTICAL;
+          case 17: 
+            { return SimpleTypes.SLIDES_IMAGEM_OU_LINK;
             }
           case 38: break;
-          case 19: 
-            { return (isInsideNotes() ? SimpleTypes.SLIDES_NOTES_BOLD_ITALICS : SimpleTypes.SLIDES_BOLD_ITALICS);
+          case 18: 
+            { yybegin(YYINITIAL); return SimpleTypes.NEW_SLIDE_HORIZONTAL;
             }
           case 39: break;
-          case 20: 
-            { yybegin(INSIDE_BOOK); return SimpleTypes.NEW_BOOK_NOTES;
+          case 19: 
+            { yybegin(YYINITIAL); return SimpleTypes.NEW_SLIDE_VERTICAL;
             }
           case 40: break;
+          case 20: 
+            { return (isInsideNotes() ? SimpleTypes.SLIDES_NOTES_BOLD_ITALICS : SimpleTypes.SLIDES_BOLD_ITALICS);
+            }
+          case 41: break;
+          case 21: 
+            { yybegin(INSIDE_BOOK); return SimpleTypes.NEW_BOOK_NOTES;
+            }
+          case 42: break;
           default:
             zzScanError(ZZ_NO_MATCH);
           }

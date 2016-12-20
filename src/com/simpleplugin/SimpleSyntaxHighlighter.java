@@ -76,6 +76,7 @@ public class SimpleSyntaxHighlighter extends SyntaxHighlighterBase {
         put(SimpleTypes.NEW_BOOK_NOTES, criarParaHighlight(HIGHLIGHT_NEW_BOOK_NOTES));
 
         put(SimpleTypes.WHITESPACE_BOOK_NOTES, criarParaHighlight(createTextAttributesKey("WHITESPACE_BOOK_NOTES", DefaultLanguageHighlighterColors.BLOCK_COMMENT)));
+        put(SimpleTypes.SLIDES_COMANDO_ESPECIAL, criarParaHighlight(createTextAttributesKey("SLIDES_COMANDO_ESPECIAL", DefaultLanguageHighlighterColors.BLOCK_COMMENT)));
     }};
 
     @NotNull

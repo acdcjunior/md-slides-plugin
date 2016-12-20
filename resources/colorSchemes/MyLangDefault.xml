@@ -111,7 +111,8 @@
 
     <option name="SLIDES_CODE_BLOCK">
         <value>
-            <option name="BACKGROUND" value="DEDEDE"/>
+            <option name="FOREGROUND" value="CC0000"/>
+            <option name="BACKGROUND" value="E1E1E1"/>
         </value>
     </option>
 
